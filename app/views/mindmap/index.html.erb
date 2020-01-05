@@ -7,20 +7,16 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="icon" type="image/png" href="images/favicon.ico" />
-    <link rel="stylesheet" href="styles/newtab.css" />
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="node_modules/fullcalendar/dist/fullcalendar.min.css" />
-    <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="node_modules/moment/min/moment.min.js"></script>
-    <script type="text/javascript" src="node_modules/jcanvas/dist/jcanvas.js"></script>
-    <script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="node_modules/responsive-toolkit/dist/bootstrap-toolkit.min.js"></script>
-    <script type="text/javascript" src="node_modules/fullcalendar/dist/fullcalendar.min.js"></script>
-    <script type="text/javascript" src="https://www.gstatic.com/firebasejs/3.6.7/firebase.js"></script>
-    <script type="text/javascript" src="libs/ace/ace.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.15/jquery-ui.min.js"></script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
   </head>
-  <body>
+<body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">マインドマップ</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,24 +37,6 @@
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a href="#" class="nav-link dropdown-toggle" id="navbarEdit" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Edit
-          </a>
-          <div class="dropdown-menu" id="edit" aria-labelledby="navbarEdit">
-            <a class="dropdown-item dropdownEditItem" href="#" id="btnEditBold">Bold</a>
-            <a class="dropdown-item dropdownEditItem" href="#" id="btnEditStrikeThrough">Strike Through</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#" id="btnCopyAsPlainText">Copy as Plain Text</a>
-            <a class="dropdown-item" href="#" id="btnCopyAsMarkdownText">Copy as Markdown Text</a>
-            <a class="dropdown-item" href="#" id="btnCopyAsHtmlText">Copy as HTML</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#" id="btnExportAsPng">Export as PNG</a>
-            <a class="dropdown-item" href="#" id="btnExportAsJpeg">Export as JPEG</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#" id="btnDelete">Delete</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
           <a href="#" class="nav-link dropdown-toggle" id="navbarLayout" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Layout
           </a>
@@ -71,248 +49,200 @@
             <a class="dropdown-item" href="#" id="btnCalendar">Calendar View</a>
           </div>
         </li>
-        <li class="nav-item dropdown">
-          <a href="#" class="nav-link dropdown-toggle" id="navbarConfiguration" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Settings
-          </a>
-          <div class="dropdown-menu" id="configuration" aria-labelledby="navbarConfiguration">
-            <form class="px-4 py-3">
-              <div class="form-group">
-                <label>Line Color Mode</label><br />
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="lineColorMode" id="btnLineColorModeOn" value="on">
-                  <label class="form-check-label" for="btnLineColorModeOn">On</label>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="lineColorMode" id="btnLineColorModeOff" value="off">
-                  <label class="form-check-label" for="btnLineColorModeOff">Off</label>
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label>Filter Strike Through Text Mode</label><br />
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="filterModel" id="btnFilterStrikeThroughTextModeOn" value="on">
-                  <label class="form-check-label" for="btnFilterStrikeThroughTextModeOn">Show</label>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="filterModel" id="btnFilterStrikeThroughTextModeOff" value="off">
-                  <label class="form-check-label" for="btnFilterStrikeThroughTextModeOff">Hide</label>
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label for="fontSizeLabel">Font Size</label><br />
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="fontSize" id="btnFontSize10" value="10">
-                  <label class="form-check-label" for="btnFontSize10">10</label>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="fontSize" id="btnFontSize12" value="12">
-                  <label class="form-check-label" for="btnFontSize12">12</label>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="fontSize" id="btnFontSize14" value="14">
-                  <label class="form-check-label" for="btnFontSize14">14</label>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="fontSize" id="btnFontSize16" value="16">
-                  <label class="form-check-label" for="btnFontSize16">16</label>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="fontSize" id="btnFontSize18" value="18">
-                  <label class="form-check-label" for="btnFontSize18">18</label>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="fontSize" id="btnFontSize24" value="24">
-                  <label class="form-check-label" for="btnFontSize24">24</label>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="fontSize" id="btnFontSize36" value="36">
-                  <label class="form-check-label" for="btnFontSize36">36</label>
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label for="wingLabel">Mindmap Layout</label><br />
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="wingMode" id="btnWingModeBoth" value="both">
-                  <label class="form-check-label" for="btnWingModeBoth">Both</label>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="wingMode" id="btnWingModeLeftOnly" value="left">
-                  <label class="form-check-label" for="btnWingModeLeftOnly">Left Only</label>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="wingMode" id="btnWingModeRightOnly" value="right">
-                  <label class="form-check-label" for="btnWingModeRightOnly">Right Only</label>
-                </div>
-              </div>
-
-              <div>
-                <label>Show last Mindmap at startup</label><br />
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="showLastMindmapMode" id="btnShowLastMindmapModeOn" value="on">
-                  <label class="form-check-label" for="btnShowLastMindmapModeOn">On</label>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="showLastMindmapMode" id="btnShowLastMindmapModeOff" value="off">
-                  <label class="form-check-label" for="btnShowLastMindmapModeOff">Off</label>
-                </div>
-              </div>
-            </form>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a href="#" class="nav-link dropdown-toggle" id="navbarSession" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Session
-          </a>
-          <div class="dropdown-menu" id="session" aria-labelledby="navbarSession">
-            <a class="dropdown-item" href="#" id="btnOnline">
-              <span id="lblOnline"></span>
-            </a>
-          </div>
-        </li>
       </ul>
     </div>
   </nav>
-
-  <div class="container-fluid main">
-    <div class="row">
-      <div id="leftColumn" class="col-lg-4">
-        <div id="source"></div>
+  <html>
+  
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>   
+  </head>
+    <body>
+      <div>
+          <div style="float:left">
+              <textarea id="text" name="text" rows="50" cols="50" style= "background-color: lightgray;"></textarea>
+          </div>
+          <div style="float:left;">
+            <svg id="map" width="700" height="700"></svg>
+          </div>
       </div>
-      <div id="rightColumn" class="col-lg-8">
-        <div class="canvas-container">
-          <canvas id="target" width="50" height="50"></canvas>
-        </div>
-      </div>
-    </div>
-  </div>
+          <script type="text/javascript">
+        var svgNS = "http://www.w3.org/2000/svg";
+        var htmlNS = "http://www.w3.org/1999/xhtml"
 
-  <div class="container-fluid footer">
-    <div class="statusBar">
-      <div id="statusMessage"></div>
-      <div class="float-right footerButtons">
-        <img id="footerBtnLayoutRightMain" src="images/focus_mindmap.gif" title="Focus on MindMap" />
-        <img id="footerBtnLayoutLeftMain" src="images/focus_text.gif" title="Focus on Text" />
-        <img id="footerBtnLayoutRightOnly" src="images/mindmap.gif" title="MindMap only" />
-        <img id="footerBtnLayoutLeftOnly" src="images/text.gif" title="Text only" />
-      </div>
-    </div>
-  </div>
+        var inputText = "";
+        $("#text").keyup(function(){
+            if(inputText != $("#text").val())
+            {
+                inputText = $("#text").val()
+                drawMap(inputText);
+            }
+        })
 
-  <div id="confirmDialog" class="modal fade">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Confirm</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <p id="confirmMessage"></p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-          <button type="button" class="btn btn-danger" id="btnConfirmYes">Yes</button>
-        </div>
-      </div>
-    </div>
-  </div>
+        var nodeWidth = 100;
+        var nodeHeight = 50;
+        var xMargin = 50;
+        var yMargin = 20;
 
-  <div id="calendarDialog" class="modal fade">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Calendar</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div id="calendar"></div>
-        </div>
-      </div>
-    </div>
-  </div>
+        function drawMap(text)
+        {
+            $("#map").empty();
 
-  <div id="loginDialog" class="modal fade">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Login</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="form-group">
-              <label for="inputEmail">Email address</label>
-              <input type="email" class="form-control" id="inputEmail" placeholder="Email">
-            </div>
-            <div class="form-group">
-              <label for="inputPassword">Password</label>
-              <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-            </div>
-          </form>
-          <div id="loginErrorMessage" class="errorMessage"></div>
-        </div>
-        <div class="modal-footer">
-          <a href="#" id="btnOpenCreateUserDialog">Create a new user</a>
-          <a href="#" id="btnForgotPassword">Forgot password</a>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-primary" id="btnLogin">Login</button>
-        </div>
-      </div>
-    </div>
-  </div>
+            console.log(text)
+            nodeArray = parseText(text);
+            nodeArray = decideNodePosition(nodeArray);
+            console.log(nodeArray);
 
-  <div id="createUserDialog" class="modal fade">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Create a new user</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="form-group">
-              <label for="inputEmail">Email address</label>
-              <input type="email" class="form-control" id="inputNewEmail" placeholder="Email">
-            </div>
-            <div class="form-group">
-              <label for="inputNewPassword1">Password</label>
-              <input type="password" class="form-control" id="inputNewPassword1" placeholder="Password">
-            </div>
-            <div class="form-group">
-              <label for="inputNewPassword2">Retype</label>
-              <input type="password" class="form-control" id="inputNewPassword2" placeholder="Password">
-            </div>
-          </form>
-          <div id="createUserErrorMessage" class="errorMessage"></div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-primary" id="btnCreateUser">Create</button>
-        </div>
-      </div>
-    </div>
-  </div>
+            for(var i = 0; i < nodeArray.length; i++)
+            {
+                drawSingleNode(nodeArray[i].text, nodeArray[i].x, nodeArray[i].y)
+                var children = nodeArray[i].children;
+                for(var j = 0; j < children.length; j++)
+                {
+                    connectNodes(nodeArray[i], children[j]);                
+                }
+            }
+        }
 
-  <textarea id="copyBuffer"></textarea>
+        function decideNodePosition(nodeArray)
+        {
+            var leafCounter = 0;
 
-  <script type="text/javascript" src="scripts/bundle.js"></script>
+            for(var i = 0; i < nodeArray.length; i++)
+            {
+                var level = nodeArray[i].level;
+                nodeArray[i]["x"] = level*(nodeWidth + xMargin)
+
+                if(nodeArray[i].children.length == 0)
+                {
+                    nodeArray[i]["y"] = leafCounter*(nodeHeight + yMargin)
+                    leafCounter++;
+                }
+            }
+
+            for(var i = nodeArray.length - 1; i >= 0; i--)
+            {
+                if(nodeArray[i].children.length > 0)
+                {
+                    var y = 0;
+                    var middleNodeID = Math.floor(nodeArray[i].children.length/2);
+
+                    if(nodeArray[i].children.length % 2 == 1)
+                    {
+                        y = nodeArray[i].children[middleNodeID].y;
+                    }
+                    else
+                    {
+                        var y1 = nodeArray[i].children[middleNodeID].y;
+                        var y2 = nodeArray[i].children[middleNodeID - 1].y;
+                        y = (y1 + y2)/2;
+                    }
+
+                    nodeArray[i]["y"] = y;
+                }
+            }
+
+            return nodeArray
+        }
+
+        function drawSingleNode(text, x, y)
+        {
+            var rectElement = document.createElementNS(svgNS, "rect");
+            rectElement.setAttribute("width", nodeWidth);
+            rectElement.setAttribute("height", nodeHeight);
+            rectElement.setAttribute("x", x);
+            rectElement.setAttribute("y", y);
+            rectElement.setAttribute("fill", "white");
+            rectElement.setAttribute("stroke", "black");
+            var foreignElement = document.createElementNS(svgNS, "foreignObject");
+            foreignElement.setAttribute("width", nodeWidth);
+            foreignElement.setAttribute("height", nodeHeight); 
+            foreignElement.setAttribute("x", x);
+            foreignElement.setAttribute("y", y);
+            var innerElement = document.createElementNS(htmlNS, "div");
+            innerElement.innerText = text;
+            innerElement.style["padding"] = "0 5 0 5";
+
+            document.getElementById("map").appendChild(rectElement);
+            document.getElementById("map").appendChild(foreignElement);
+            foreignElement.appendChild(innerElement);
+        }
+
+        function connectNodes(fromNode, toNode)
+        {
+            var lineElement = document.createElementNS(svgNS, "line");
+            lineElement.setAttribute("x1", fromNode.x + nodeWidth);
+            lineElement.setAttribute("y1", fromNode.y + nodeHeight/2);
+            lineElement.setAttribute("x2", toNode.x);
+            lineElement.setAttribute("y2", toNode.y + nodeHeight/2);
+            lineElement.setAttribute("stroke", "black");
+
+            document.getElementById("map").appendChild(lineElement);
+        }
 
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-  </body>
+        function parseText(text)
+        {
+            textArray = text.split("\n")
+            mapObject = new Object();
+            nodeArray = [];
+
+            levelArray = [];
+            levelArray[0] = null;
+
+            for(var i = 0; i < textArray.length; i++)
+            {
+                var level = 0;
+                var text = textArray[i];
+
+                for(var j = 0; j < text.length; j++)
+                {
+                    if(text.startsWith("*"))
+                    {
+                        text = text.substring(1);
+                        level++;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+
+                text = text.trim();
+
+                var node = {id: i.toString(), text: text, level: level, parent: levelArray[level]}
+                nodeArray.push(node)
+                levelArray[level + 1] = node;
+            }
+            
+            childrenMap = {};
+
+            for(var i = nodeArray.length - 1; i >= 0; i--)
+            {
+                if(nodeArray[i].id in childrenMap)
+                {
+                    nodeArray[i]["children"] = childrenMap[nodeArray[i].id];
+                }
+                else
+                {
+                    nodeArray[i]["children"] = [];                
+                }
+
+                if(nodeArray[i].parent != null)
+                {
+                    if(!(nodeArray[i].parent.id in childrenMap))
+                    {
+                        childrenMap[nodeArray[i].parent.id] = []
+                    }
+
+                    childrenMap[nodeArray[i].parent.id].push(nodeArray[i]);
+                }
+            }
+
+            return nodeArray;
+        }
+        </script>
+    </body>
+  </html>
+</body>
 </html>
